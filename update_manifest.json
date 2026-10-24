@@ -1,7 +1,7 @@
 {
-  "version": "1.01.3",
-  "installer_url": "https://github.com/ferudunkeskin-code/SciLexAI-Releases/releases/download/1.01.3/SciLexAI_v1.01.3_Setup.exe",
-  "sha256": "c415c2d29c274eeb3b39d2e6836472da4e57c0ce2d6a649ac95c30fb5e374e75",
-  "size_bytes": 172178018,
-  "notes": "Panellerdeki resimler daha küçük ve okumayı kolaylaştıracak boyutta gösteriliyor (Word aktarımı değişmedi)."
+  "version": "1.01.4",
+  "installer_url": "https://github.com/ferudunkeskin-code/SciLexAI-Releases/releases/download/1.01.4/SciLexAI_v1.01.4_Setup.exe",
+  "sha256": "66eb444688dc705c9e5f5eb6ec3743031ecc6b5a1d5e600eb07f55dd59b16bae",
+  "size_bytes": 172153756,
+  "notes": "Kod temizliği: kullanılmayan 5 modül ve 35 atık fonksiyon kaldırıldı. Yapay zekâ şablonundaki birim üssü kuralı (m\\,s^{-2}) düzeltildi."
 }
