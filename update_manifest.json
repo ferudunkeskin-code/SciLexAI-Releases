@@ -1,7 +1,7 @@
 {
-  "version": "1.01.4",
-  "installer_url": "https://github.com/ferudunkeskin-code/SciLexAI-Releases/releases/download/1.01.4/SciLexAI_v1.01.4_Setup.exe",
-  "sha256": "66eb444688dc705c9e5f5eb6ec3743031ecc6b5a1d5e600eb07f55dd59b16bae",
-  "size_bytes": 172153756,
-  "notes": "Kod temizliği: kullanılmayan 5 modül ve 35 atık fonksiyon kaldırıldı. Yapay zekâ şablonundaki birim üssü kuralı (m\\,s^{-2}) düzeltildi."
+  "version": "1.01.5",
+  "installer_url": "https://github.com/ferudunkeskin-code/SciLexAI-Releases/releases/download/1.01.5/SciLexAI_v1.01.5_Setup.exe",
+  "sha256": "ce2f2549b36386453cdab8ab4b600e83c7192ba67d6fd06971c7b0e39330c383",
+  "size_bytes": 166285014,
+  "notes": "Yeni: Claude, OpenAI, Gemini, DeepSeek, Grok ve OpenRouter API desteği (Ayarlar > Yapay Zekâ Sağlayıcısı). API ile Otomatik İşle artık tarayıcı AI ile aynı akışı kullanır: bölüm paketlere bölünür, yanıtlar onarılıp kaydedilir. Word'e aktarma ve Word'den Geri Yükle; panelde Word'e benzer aralıklar. Dosya menüsü yenilendi: Son Projeler, Proje Adını Değiştir, içindekilerden Bölüm Ayır."
 }
