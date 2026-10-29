@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SciLex Okuyucu</title>
+<meta name="theme-color" content="#1565c0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="SciLex">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="app.css">
+<script>
+window.MathJax = {
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']]},
+  chtml: {displayAlign: 'center'},
+  startup: {typeset: false}
+};
+</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+</head>
+<body>
+<!-- Kitaplık -->
+<section id="library" class="screen">
+  <header class="bar">
+    <div class="brand">📖 SciLex Okuyucu</div>
+  </header>
+  <main class="lib-main">
+    <label class="add-btn">
+      ➕ Dinleme paketi ekle
+      <input id="file" type="file" hidden>
+    </label>
+    <p class="hint" id="lib-hint">SciLex AI'de <b>Dosya › 📱 Telefona Gönder</b> ile hazırladığınız <code>.scilex</code>
+      dosyasını telefonunuza gönderin (WhatsApp, e-posta, Drive), sonra buradan seçin. Dosya yalnız bu telefonda
+      saklanır; hiçbir yere yüklenmez.</p>
+    <div id="lib-list"></div>
+    <p class="hint small">Uygulama gibi kullanmak için: iPhone'da Safari › Paylaş › <b>Ana Ekrana Ekle</b>;
+      Android'de Chrome › ⋮ › <b>Ana ekrana ekle</b>. İnternetsiz de çalışır.</p>
+  </main>
+</section>
+
+<!-- Okuyucu -->
+<section id="reader" class="screen hidden">
+  <header class="bar">
+    <button id="btn-back" class="icon" aria-label="Kitaplık">‹</button>
+    <div class="title-wrap">
+      <div id="r-title" class="r-title"></div>
+      <div id="r-sub" class="r-sub"></div>
+    </div>
+    <button id="btn-menu" class="icon" aria-label="Ayarlar">⚙</button>
+  </header>
+  <div id="views" class="views mode-main">
+    <article id="pane-main" class="pane"></article>
+    <article id="pane-other" class="pane other"></article>
+  </div>
+  <div id="menu" class="menu hidden">
+    <div class="menu-row">
+      <span>Görünüm</span>
+      <div class="seg" id="seg-mode">
+        <button data-mode="main" id="mode-main">Dinlenen</button>
+        <button data-mode="split">İkisi</button>
+        <button data-mode="other" id="mode-other">Öbür dil</button>
+      </div>
+    </div>
+    <div class="menu-row">
+      <span>Yazı boyutu</span>
+      <div class="seg"><button id="font-dec">A−</button><button id="font-inc">A+</button></div>
+    </div>
+    <div class="menu-row">
+      <span>Okunanı izle</span>
+      <label class="switch"><input type="checkbox" id="follow" checked><i></i></label>
+    </div>
+    <div class="menu-row">
+      <span>Uyku zamanlayıcı</span>
+      <div class="seg" id="seg-sleep">
+        <button data-min="0">Kapalı</button><button data-min="15">15 dk</button>
+        <button data-min="30">30 dk</button><button data-min="-1">Sayfa sonu</button>
+      </div>
+    </div>
+    <div class="menu-row">
+      <span>Sayfa</span>
+      <select id="page-select"></select>
+    </div>
+  </div>
+  <footer class="controls">
+    <div class="progress">
+      <span id="t-cur">0:00</span>
+      <input id="seek" type="range" min="0" max="1000" value="0">
+      <span id="t-dur">0:00</span>
+    </div>
+    <div class="buttons">
+      <button id="btn-rate" class="small-btn">1×</button>
+      <button id="btn-prev" class="icon big" aria-label="Önceki sayfa">⏮</button>
+      <button id="btn-back10" class="icon" aria-label="Önceki cümle">↺</button>
+      <button id="btn-play" class="play" aria-label="Oynat">▶</button>
+      <button id="btn-fwd10" class="icon" aria-label="Sonraki cümle">↻</button>
+      <button id="btn-next" class="icon big" aria-label="Sonraki sayfa">⏭</button>
+      <span id="sleep-badge" class="small-btn ghost"></span>
+    </div>
+  </footer>
+  <audio id="audio" preload="auto"></audio>
+</section>
+
+<div id="toast" class="toast hidden"></div>
+<script src="unzip.js"></script>
+<script src="store.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
