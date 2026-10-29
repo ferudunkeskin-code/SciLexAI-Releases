@@ -1,7 +1,7 @@
 {
-  "version": "1.01.6",
-  "installer_url": "https://github.com/ferudunkeskin-code/SciLexAI-Releases/releases/download/1.01.6/SciLexAI_v1.01.6_Setup.exe",
-  "sha256": "520a54c69b65212fc9115268cf05d2dd7f294716f86cc4f7429e3547ffc2c9ff",
-  "size_bytes": 202896588,
+  "version": "1.01.7",
+  "installer_url": "https://github.com/ferudunkeskin-code/SciLexAI-Releases/releases/download/1.01.7/SciLexAI_v1.01.7_Setup.exe",
+  "sha256": "eb39f3f95a694da430e7f76d2ba09ddfd94514e1a21155a5548b88cf0368d433",
+  "size_bytes": 206104482,
   "notes": "Yeni: Program içinde Kullanım Kılavuzu (F1), tanıtım videoları, İlk Adımlar penceresi ve iki örnek proje (makale ve Wallis). Her proje kendi hedef diline çevrilir; biten bir projeden başka dilde yeni proje kurulabilir. Çalışma Defteri ile sayfalara dosya ve not bağlanabilir.\nTaranmış sayfalar görüntüyle okunur; reddedilen sayfalar karşılaştırılıp yine de kaydedilebilir. Alanı AI ile Oku, tüm şekilleri tek seferde alma, başlık biçimleri, panele göre sesli okuma ve OCR ile çeviriyi birlikte kaydırma eklendi. Menüler sadeleşti ve proje listesindeki ikiz kayıtlar giderildi."
 }
