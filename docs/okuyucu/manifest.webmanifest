@@ -1,0 +1,21 @@
+{
+  "name": "SciLex Okuyucu",
+  "short_name": "SciLex",
+  "description": "SciLex AI dinleme paketlerini telefonda dinleyin; okunan cümle ekranda vurgulanır.",
+  "lang": "tr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f5f0",
+  "theme_color": "#1565c0",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ],
+  "share_target": {
+    "action": "./share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {"files": [{"name": "file", "accept": ["*/*", ".scilex", "application/zip", "application/octet-stream"]}]}
+  }
+}
