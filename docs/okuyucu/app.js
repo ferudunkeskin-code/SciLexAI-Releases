@@ -402,15 +402,10 @@
     });
     $('btn-back').addEventListener('click', showLibrary);
     $('btn-sample').addEventListener('click', async function () {
-      const have = (await SciStore.books()).find(function (b) { return b.manifest && b.manifest.sample === 'galileo'; });
+      const have = await sampleBook();
       if (have) { openBook(have.id); return; }
-      toast('Örnek indiriliyor (17 MB)…', 120000);
-      try {
-        const res = await fetch('ornek/galileo_ornek.scilex');
-        if (!res.ok) throw new Error('İndirilemedi (' + res.status + ')');
-        const book = await importFile(await res.blob(), 'galileo');
-        if (book) openBook(book.id);
-      } catch (e) { toast('Örnek indirilemedi: ' + e.message, 5000); }
+      const book = await addSample();
+      if (book) openBook(book.id);
     });
     $('btn-menu').addEventListener('click', function () { $('menu').classList.toggle('hidden'); });
     document.addEventListener('click', function (ev) {
@@ -501,6 +496,22 @@
     history.replaceState(null, '', location.pathname);
   }
 
+  async function sampleBook() {
+    return (await SciStore.books()).find(function (b) { return b.manifest && b.manifest.sample === 'galileo'; });
+  }
+
+  async function addSample() {
+    toast('Örnek yükleniyor (7 MB)…', 120000);
+    try {
+      const res = await fetch('ornek/galileo_ornek.scilex');
+      if (!res.ok) throw new Error('İndirilemedi (' + res.status + ')');
+      return await importFile(await res.blob(), 'galileo');
+    } catch (e) {
+      toast('Örnek indirilemedi: ' + e.message, 5000);
+      return null;
+    }
+  }
+
   async function init() {
     S.rate = pref('rate', 1);
     S.follow = pref('follow', true);
@@ -514,6 +525,11 @@
     }
     await showLibrary();
     await checkShared();
+    // İlk açılışta kitaplık boşsa Galileo örneği kendiliğinden eklenir (bir kez; silinirse geri gelmez).
+    if (!pref('sampleOffered', false) && (await SciStore.books()).length === 0) {
+      setPref('sampleOffered', true);
+      await addSample();
+    }
   }
 
   window.SciReader = { openBook: openBook, importFile: importFile, state: S };
