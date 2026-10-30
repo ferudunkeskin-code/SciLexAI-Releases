@@ -26,6 +26,11 @@ html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg);
 .lib-main { flex: 1; overflow-y: auto; padding: 16px; max-width: 720px; width: 100%; margin: 0 auto; }
 .add-btn { display: block; text-align: center; padding: 14px; border-radius: 12px; background: var(--accent);
   color: var(--accent-fg); font-weight: 600; font-size: 16px; cursor: pointer; }
+.sample-btn { display: block; width: 100%; margin-top: 10px; padding: 12px; border-radius: 12px;
+  border: 1px solid var(--accent); background: none; color: var(--accent); font-size: 15px; font-weight: 600; }
+.help { margin-top: 12px; font-size: 14px; color: var(--muted); }
+.help summary { cursor: pointer; color: var(--accent); }
+.help p { line-height: 1.5; margin: 6px 0; }
 .hint { color: var(--muted); font-size: 14px; line-height: 1.5; }
 .hint.small { font-size: 12.5px; margin-top: 24px; }
 .book { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
