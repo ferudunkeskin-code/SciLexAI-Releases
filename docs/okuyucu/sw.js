@@ -1,5 +1,5 @@
 // SciLex Okuyucu: internetsiz çalışma ve Android'de "Paylaş" ile gelen paketleri alma.
-const VERSION = 'scilex-okuyucu-v1';
+const VERSION = 'scilex-okuyucu-v2';
 const SHELL = ['./', 'index.html', 'app.css', 'app.js', 'unzip.js', 'store.js', 'manifest.webmanifest',
                'icon-192.png', 'icon-512.png'];
 const MATHJAX = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/';
@@ -45,6 +45,7 @@ self.addEventListener('fetch', function (ev) {
     return;
   }
   if (url.origin !== location.origin) return;
+  if (url.pathname.indexOf('/ornek/') >= 0) return;   // büyük örnek paket: önbelleğe alınmaz (IndexedDB'ye eklenir)
   // Uygulama dosyaları: önce ağ (güncel sürüm), internet yoksa önbellek.
   ev.respondWith(fetch(req).then(function (res) {
     if (res.ok) { const copy = res.clone(); caches.open(VERSION).then(function (c) { c.put(req, copy); }); }
