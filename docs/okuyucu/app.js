@@ -72,8 +72,8 @@
     });
   }
 
-  async function importFile(file) {
-    if (!file) return;
+  async function importFile(file, sampleTag) {
+    if (!file) return null;
     toast('Paket açılıyor…', 60000);
     try {
       const files = await SciUnzip(await file.arrayBuffer());
@@ -81,12 +81,15 @@
       if (!mf) throw new Error('Bu dosya bir SciLex dinleme paketi değil.');
       const manifest = JSON.parse(await mf.text());
       if (manifest.format !== 'scilex-listen') throw new Error('Bu dosya bir SciLex dinleme paketi değil.');
+      if (sampleTag) manifest.sample = sampleTag;
       await SciStore.persist();
       const book = await SciStore.addBook(manifest, files);
       toast('Eklendi: ' + book.title);
       await showLibrary();
+      return book;
     } catch (e) {
       toast('Açılamadı: ' + (e && e.message ? e.message : e), 6000);
+      return null;
     }
   }
 
@@ -398,6 +401,17 @@
       ev.target.value = '';
     });
     $('btn-back').addEventListener('click', showLibrary);
+    $('btn-sample').addEventListener('click', async function () {
+      const have = (await SciStore.books()).find(function (b) { return b.manifest && b.manifest.sample === 'galileo'; });
+      if (have) { openBook(have.id); return; }
+      toast('Örnek indiriliyor (17 MB)…', 120000);
+      try {
+        const res = await fetch('ornek/galileo_ornek.scilex');
+        if (!res.ok) throw new Error('İndirilemedi (' + res.status + ')');
+        const book = await importFile(await res.blob(), 'galileo');
+        if (book) openBook(book.id);
+      } catch (e) { toast('Örnek indirilemedi: ' + e.message, 5000); }
+    });
     $('btn-menu').addEventListener('click', function () { $('menu').classList.toggle('hidden'); });
     document.addEventListener('click', function (ev) {
       const m = $('menu');
