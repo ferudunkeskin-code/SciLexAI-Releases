@@ -1,7 +1,7 @@
 {
-  "version": "1.01.9",
-  "installer_url": "https://github.com/ferudunkeskin-code/SciLexAI-Releases/releases/download/1.01.9/SciLexAI_v1.01.9_Setup.exe",
-  "sha256": "237bda2415e926ee5dd567db5ce52873ab1fb97199b56e89bc4c4891a598738e",
-  "size_bytes": 219164253,
+  "version": "1.01.10",
+  "installer_url": "https://github.com/ferudunkeskin-code/SciLexAI-Releases/releases/download/1.01.10/SciLexAI_v1.01.10_Setup.exe",
+  "sha256": "9d9cb58410dacd758fc378dc0dd964f0cab94b9c587af52bd17f23651777ccb0",
+  "size_bytes": 219187456,
   "notes": "Yeni: 📱 Telefona Gönder — seçtiğiniz sayfalar seslendirilir, telefonda SciLex Okuyucu ile dinlerken okunan cümle ekranda vurgulanır, öbür dil yanında görülebilir. Yeni örnek proje: Galileo, Diyalog (1632). Word videosu kılavuzda.\nDar ekranlarda araç çubuğu kesilmiyor, program ilk açılışta tam ekran açılıyor, kılavuz videolarının müziği yenilendi. Lisans anahtarı olmadan program 14 gün deneme olarak çalışır."
 }
