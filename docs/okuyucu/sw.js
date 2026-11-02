@@ -1,5 +1,5 @@
 // SciLex Okuyucu: internetsiz çalışma ve Android'de "Paylaş" ile gelen paketleri alma.
-const VERSION = 'scilex-okuyucu-v2';
+const VERSION = 'scilex-okuyucu-v3';
 const SHELL = ['./', 'index.html', 'app.css', 'app.js', 'unzip.js', 'store.js', 'manifest.webmanifest',
                'icon-192.png', 'icon-512.png'];
 const MATHJAX = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/';
